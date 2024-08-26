@@ -52,12 +52,13 @@ function createWindow() {
 
 app.on('ready', () => {
 	protocol.interceptFileProtocol('file', (request, callback) => {
-		let requestedUrl = request.url.substr(7); // Strip off the 'file://' prefix
-		if (requestedUrl === "/") {
-			requestedUrl = "/index.html";
-		}
-		const requestPath = path.join(__dirname, 'site', requestedUrl);
+		let pathname = decodeURI(url.parse(request.url).pathname);
 
+		if (pathname === "/") {
+			pathname = "/index.html";
+		}
+
+		const requestPath = path.join(__dirname, 'site', pathname);
 		if (fs.existsSync(requestPath)) {
 			callback(requestPath);
 		} else {
