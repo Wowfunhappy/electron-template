@@ -4,11 +4,10 @@
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
-    "package-mac": "NODE_TLS_REJECT_UNAUTHORIZED=0 electron-packager . --platform=darwin --arch=x64 --out=release --overwrite && npm run fix-LSMinimumSystemVersion && sh electron-modifier/build.sh",
-    "fix-LSMinimumSystemVersion": "find $(pwd) -name '*.app' -type d -print0 | xargs -0 -I {} defaults write \"{}/Contents/Info\" LSMinimumSystemVersion 10.9"
+    "package-mac": "NODE_TLS_REJECT_UNAUTHORIZED=0 electron-packager . --platform=darwin --arch=x64 --out=release --overwrite"
   },
   "devDependencies": {
     "@electron/packager": "^18",
-    "electron": "4.2.12"
+    "electron": "3.1.13"
   }
 }
