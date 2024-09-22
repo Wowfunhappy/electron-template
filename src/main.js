@@ -33,7 +33,7 @@ function createWindow() {
 		minHeight: MIN_HEIGHT,
 		
 		webPreferences: {
-			//preload: path.join(__dirname, 'preload.js'),
+			preload: path.join(__dirname, 'preload.js'),
 			//webSecurity: false,
 			//contextIsolation: false,
 			//nodeIntegration: true,
@@ -77,6 +77,11 @@ app.on('ready', () => {
 		setTimeout(() => {
 			contextMenu.popup(mainWindow);
 		}, 20); //timeout needed for text to appear highlighted
+	});
+	
+	app.setAboutPanelOptions({
+		//copyright: 'lorem ipsum\ndolar sit asmet',
+		//website: 'example.com'
 	});
 });
 
