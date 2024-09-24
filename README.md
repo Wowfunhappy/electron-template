@@ -1,4 +1,4 @@
-A simple Electron wrapper that can turn websites into apps. Place the website in /src/site.
+A simple Electron wrapper that can turn static websites into apps. Place the website in /src/site.
 
 Uses Electron 3.1.13 to maintain compatibility with OS X 10.9 Mavericks.
 
